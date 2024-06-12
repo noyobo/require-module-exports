@@ -1,0 +1,66 @@
+{
+  "name": "require-module-exports",
+  "version": "1.0.0",
+  "description": "require module.exports or exports from file.",
+  "keywords": [
+    "esmodule",
+    "require"
+  ],
+  "homepage": "https://github.com/noyobo/require-module-exports#readme",
+  "bugs": {
+    "url": "https://github.com/noyobo/require-module-exports/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noyobo/require-module-exports.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Youbao Nong",
+    "email": "noyobo@gmail.com",
+    "url": "https://github.com/noyobo"
+  },
+  "main": "./lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "clean": "rm -rf ./lib/",
+    "lint": "eslint ./src/ --fix",
+    "prepare": "npx husky install",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.ts": "npx @biomejs/biome check --fix"
+  },
+  "dependencies": {
+    "esbuild": "0.x"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.1",
+    "@swc/core": "^1.5.25",
+    "@swc/helpers": "^0.5.11",
+    "@swc/jest": "^0.2.36",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "conventional-changelog-conventionalcommits": "^7.0.2",
+    "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.3.1",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=12.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

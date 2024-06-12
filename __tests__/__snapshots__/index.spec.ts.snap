@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index require-module-exports basic 1`] = `
+{
+  "a": 1,
+}
+`;
+
+exports[`index require-module-exports basic 2`] = `
+{
+  "age": 20,
+  "name": "b",
+  "say": [Function],
+}
+`;
