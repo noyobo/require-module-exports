@@ -1,6 +1,6 @@
 {
   "name": "require-module-exports",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "require module.exports or exports from file.",
   "keywords": [
     "esmodule",
