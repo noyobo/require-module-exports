@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.0.0 (2024-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* export loadModuleFile & and rename requireModuleExports (#5)
+
+### Features
+
+* export loadModuleFile & and rename requireModuleExports ([#5](https://github.com/noyobo/require-module-exports/issues/5)) ([2517154](https://github.com/noyobo/require-module-exports/commit/25171541ab3c429a54083504635091f6c91287fc))
+
 ## [1.2.0](https://github.com/noyobo/require-module-exports/compare/v1.1.0...v1.2.0) (2024-09-06)
 
 
