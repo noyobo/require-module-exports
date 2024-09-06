@@ -11,11 +11,22 @@ require `module.exports` or `exports` from file
 
 ## Usage 
 
-```js
-const { requireModuleExports } = require('require-module-exports');
+Pure commonjs module
 
-const moduleExports = requireModuleExports('./path/to/file.js');
+```js
+const { requireModuleFile } = require('require-module-exports');
+
+const moduleExports = requireModuleFile('./path/to/file.js');
 ```
+
+Nodejs environment module
+
+```js
+const { loadModuleFile } = require('require-module-exports');
+
+const moduleExports = loadModuleFile('./path/to/file.js');
+```
+
 
 [build-img]: https://github.com/noyobo/require-module-exports/actions/workflows/release.yml/badge.svg
 [build-url]: https://github.com/noyobo/require-module-exports/actions/workflows/release.yml
