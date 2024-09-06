@@ -1,40 +1,32 @@
-import fs from 'node:fs';
-import { basename, dirname, extname, join } from 'node:path';
 import { buildSync } from 'esbuild';
 
-export function runCjs<T>(filePath: string, code: string) {
-  const dir = dirname(filePath);
-  const fileName = basename(filePath);
-  const ext = extname(fileName);
-  const fileBase = `${fileName}.timestamp-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  const tmpFilePath = join(dir, fileBase + ext);
+export function runCjs<T>(code: string) {
+  const module = { exports: {} };
+  const fn = new Function('module', 'exports', code);
+  fn(module, module.exports);
+  const mod = module.exports as T;
 
-  // TODO: support .mjs
-
-  fs.writeFileSync(tmpFilePath, code, 'utf-8');
-  const exports = require(tmpFilePath);
-  fs.unlinkSync(tmpFilePath);
-
-  if (exports.__esModule) {
-    return exports.default as T;
+  // @ts-ignore
+  if (mod?.__esModule) {
+    // @ts-ignore
+    return mod.default;
   }
-  return exports as T;
+  return mod;
 }
 
 /**
  * 读取并运行文件
  */
-export const requireModuleExports = (filePath: string) => {
+export const requireModuleExports = (filename: string) => {
   const result = buildSync({
-    entryPoints: [filePath],
+    entryPoints: [filename],
     bundle: true,
     minify: true,
-    platform: 'node',
     format: 'cjs',
     target: 'es2015',
     sourcemap: false,
     write: false,
   });
   const code = result.outputFiles[0].text;
-  return runCjs<Record<string, unknown>>(filePath, code);
+  return runCjs<Record<string, unknown>>(code);
 };
