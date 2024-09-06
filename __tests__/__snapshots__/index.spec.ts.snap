@@ -9,6 +9,7 @@ exports[`index require-module-exports basic 1`] = `
 exports[`index require-module-exports basic 2`] = `
 {
   "age": 20,
+  "b": "/abc/a.js",
   "name": "b",
   "say": [Function],
 }
