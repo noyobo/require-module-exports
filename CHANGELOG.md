@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.1 (2024-10-18)
+
+
+### Bug Fixes
+
+* esModule export default ([8405be5](https://github.com/noyobo/require-module-exports/commit/8405be58e4f53f3cfc35a31db131ec4c500e953b))
+
 ## 2.0.0 (2024-09-06)
 
 
