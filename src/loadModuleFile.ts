@@ -15,7 +15,7 @@ function requireModule<T>(filePath: string, code: string) {
   const exports = require(tmpFilePath);
   fs.unlinkSync(tmpFilePath);
 
-  if (exports.__esModule) {
+  if (exports.__esModule && 'default' in exports) {
     return exports.default as T;
   }
   return exports as T;
