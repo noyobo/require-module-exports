@@ -14,3 +14,25 @@ exports[`index require-module-exports basic 2`] = `
   "say": [Function],
 }
 `;
+
+exports[`index require-module-exports basic export names cjs 1`] = `
+{
+  "bar": "bar",
+  "foo": "foo",
+}
+`;
+
+exports[`index require-module-exports basic export names cjs 2`] = `
+{
+  "bar": "bar",
+  "baz": "baz",
+  "foo": "foo",
+}
+`;
+
+exports[`index require-module-exports basic export names esm 1`] = `
+{
+  "bar": "bar",
+  "foo": "foo",
+}
+`;

@@ -1,15 +1,29 @@
 import { buildSync } from 'esbuild';
 
-export function runCjs<T>(code: string) {
+export function runCjs<T>(
+  code: string,
+  exportNames: string | string[] = 'default',
+): T {
   const module = { exports: {} };
   const fn = new Function('module', 'exports', code);
   fn(module, module.exports);
   const mod = module.exports as T;
 
-  // @ts-ignore
-  if (mod?.__esModule) {
+  if (Array.isArray(exportNames)) {
+    return exportNames.reduce((acc, key) => {
+      (acc as Record<string, unknown>)[key] = (mod as Record<string, unknown>)[
+        key
+      ];
+      return acc;
+    }, {} as T);
+  }
+
+  if (exportNames === 'default') {
     // @ts-ignore
-    return mod.default;
+    if (mod?.__esModule) {
+      // @ts-ignore
+      return mod.default;
+    }
   }
   return mod;
 }
@@ -18,7 +32,10 @@ export function runCjs<T>(code: string) {
  * transform module file to commonjs module and run it
  * return the exports object
  */
-export const requireModuleFile = (filePath: string) => {
+export const requireModuleFile = (
+  filePath: string,
+  exportNames: string | string[] = 'default',
+) => {
   const result = buildSync({
     entryPoints: [filePath],
     bundle: true,
@@ -29,5 +46,5 @@ export const requireModuleFile = (filePath: string) => {
     write: false,
   });
   const code = result.outputFiles[0].text;
-  return runCjs<Record<string, unknown>>(code);
+  return runCjs<Record<string, unknown>>(code, exportNames);
 };
