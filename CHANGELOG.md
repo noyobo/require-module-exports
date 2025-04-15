@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/noyobo/require-module-exports/compare/v2.0.1...v3.0.0) (2025-04-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* add requireModuleCode
+
+### Features
+
+* add requireModuleCode ([5adbd06](https://github.com/noyobo/require-module-exports/commit/5adbd061331a69a189b965e2ca398b676a0fbe15))
+
 ### 2.0.1 (2024-10-18)
 
 
